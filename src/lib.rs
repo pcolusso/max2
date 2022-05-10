@@ -1,4 +1,4 @@
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub struct Pair<T>(T, T)
 where
     T: Ord;
@@ -44,4 +44,22 @@ where
     T: Ord,
 {
     unimplemented!()
+}
+
+#[cfg(test)]
+mod test {
+    use crate::*;
+
+    const SAMPLE: [i32; 25] = [98, 20, 65, 10, 72, 25, 70, 60, 40, 77, 64, 46,  3, 42, 33, 50, 83, 36, 41, 32, 89, 88, 23, 21, 61];
+    const RESULT: Pair<i32> = Pair(98, 89);
+
+    #[test]
+    fn test_sort() {
+        assert_eq!(RESULT, sort_max2(SAMPLE));
+    }
+
+    #[test]
+    fn test_fold() {
+        assert_eq!(RESULT, fold_max2(SAMPLE));
+    }
 }
