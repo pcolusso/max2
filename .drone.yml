@@ -2,6 +2,18 @@ kind: pipeline
 type: kubernetes
 name: default
 
+platform:
+  os: linux
+  arch: arm64
+
+
+trigger:
+  branch:
+  - master
+
+node_selector:
+  role: worker
+
 steps:
   - name: benchmark-arm
     image: rust:1.60
