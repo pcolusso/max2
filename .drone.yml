@@ -1,0 +1,9 @@
+kind: pipeline
+type: kubernetes
+name: default
+
+steps:
+  - name: benchmark-arm
+    image: rust:1.60
+    commands:
+      - cargo bench
